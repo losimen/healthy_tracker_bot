@@ -1,0 +1,12 @@
+/shelf/
+/workspace.xml
+/out/
+/.vs/
+/.idea
+/vcpkg/
+/tgbot-cpp/
+/xcode/
+*.user
+Database.conf
+CMakeFiles
+CMakeCache.txt
