@@ -14,13 +14,15 @@
 #include <iostream>
 #include <fstream>
 
+using namespace TgBot;
+
 class HandlerRequest
 {
 private:
     std::vector<std::string> comands {"start", "drink"};
     
-    void _comandStart(TgBot::Bot& bot);
-    void _anyMsg(TgBot::Bot& bot);
+    void _comandStart(Bot& bot);
+    void _anyMsg(Bot& bot);
 public:
     
     void StartBot();

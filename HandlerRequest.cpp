@@ -6,6 +6,7 @@
 //
 
 #include "HandlerRequest.hpp"
+#include <unistd.h>
 
 std::string GetToken()
 {
@@ -18,21 +19,37 @@ std::string GetToken()
     return token;
 }
 
-void HandlerRequest::_comandStart(TgBot::Bot& bot)
+void HandlerRequest::_comandStart(Bot& bot)
 {
     bot.getEvents().onCommand("start", [&bot](TgBot::Message::Ptr message)
     {
+        std::string years = "NULL", weight;
+        Update::Ptr p;
+        //check if user exist
+        if(!true)
+        {
+            bot.getApi().sendMessage(message->chat->id, "Welcome back, " + message->chat->firstName + " !");
+            //exist move to the profile
+            return;
+        }
+        // if doesn't create profile
         bot.getApi().sendMessage(message->chat->id, "Hi, " + message->chat->firstName + " !");
+        
+        bot.getApi().sendMessage(message->chat->id, "How old are you?");
+        
+        
+        
     });
+    
 }
 
-void HandlerRequest::_anyMsg(TgBot::Bot& bot)
+void HandlerRequest::_anyMsg(Bot& bot)
 {
     bot.getEvents().onAnyMessage([&bot, this](TgBot::Message::Ptr message) {
         std::cout << "user: " << message->chat->firstName << "| msg: " << message->text << std::endl;
-        for(const auto &i : comands)
+        for(const auto &command : comands)
         {
-            if (message->text == "/" + i)
+            if (message->text == "/" + command)
                 return;
         }
         
@@ -48,10 +65,9 @@ void HandlerRequest::StartBot()
     _anyMsg(bot);
     
     try {
-        TgBot::TgLongPoll longPoll(bot);
+        TgLongPoll longPoll(bot);
         while (true)
         {
-            printf("Long poll started\n");
             longPoll.start();
         }
     } catch (TgBot::TgException& e) {
