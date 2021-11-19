@@ -3,6 +3,7 @@ project(echobot)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
 set(Boost_USE_MULTITHREADED ON)
+set(OPENSSL_ROOT_DIR /usr/local/opt/openssl)
 
 find_package(Threads REQUIRED)
 find_package(OpenSSL REQUIRED)
