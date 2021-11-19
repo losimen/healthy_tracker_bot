@@ -12,3 +12,5 @@ Now you are ready to run your bot:
 1. Put with executable file, file _token.txt_
 2. Then put into _token.txt_ your bot token
 3. Compile your bot
+
+[Bot telegram ](https://t.me/HealthyTrackerBot)
