@@ -11,3 +11,4 @@ When you succesfully installed all of the libraries - complete instructions writ
 Now you are ready to run your bot:
 1. Put with executable file, file _token.txt_
 2. Then put into _token.txt_ your bot token
+3. Compile your bot
